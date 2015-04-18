@@ -1,0 +1,20 @@
+#include <iostream>
+
+const int ArraySize = 50;
+
+int main(void)
+{
+    char name[ArraySize];
+    char address[ArraySize];
+
+    std::cout << "Enter Name: ";
+    std::cin.getline(name, ArraySize);
+    std::cout << "\nEnter Address: ";
+    std::cin.get(address, ArraySize);
+
+
+    std::cout << "\nName: " << name << "\n";
+    std::cout << "\nAddress: " << address << "\n";
+
+    return 0;
+}
