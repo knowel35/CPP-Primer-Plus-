@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main(void)
+{
+    int furlong;
+    int yards;
+
+    std::cout << "Enter Furlong: ";
+    std::cin >> furlong;
+
+    yards  = furlong * 220;
+
+    std::cout << furlong << " Furlong is Equal to " << yards << " yards \n";
+
+
+    return 0;
+}
