@@ -1,0 +1,30 @@
+/*chap2.4: making User defined functions
+//taking temperature as argument and returns a value for Fahrenheit*/
+
+#include <iostream>
+
+
+double temperature(double c);
+
+int main()
+{
+    double celsius;
+    double fahrenheit;
+
+    std::cout << "Please enter a Celsius value: ";
+    std::cin >> celsius;
+    fahrenheit = temperature(celsius);
+    std::cout << celsius << "  degrees Celsius is " << fahrenheit << " degrees Fahrenheit.\n";
+
+    return 0;
+}
+
+
+double temperature(double c)
+{
+    double f;
+
+    f = (1.8 * c) + 32.0;
+
+    return f;
+}
