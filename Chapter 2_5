@@ -1,0 +1,28 @@
+//chap2.5: Write a program that asks the user to enter his or her age. 
+//The program then should display the age in months:
+
+#include <iostream>
+
+const int Conversion(int y);
+
+int main(void)
+{
+    int age;
+
+    std::cout << "Enter your Age: ";
+    std::cin >> age;
+    std::cout << "\n";
+
+    int temp = Conversion(age);
+
+    std:: cout << "Your age in months is " << temp << "\n";
+
+    return 0;
+}
+
+const int Conversion(int y)
+{
+    int months = y * 12;
+
+    return months;
+}
