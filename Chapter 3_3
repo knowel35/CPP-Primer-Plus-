@@ -1,0 +1,32 @@
+//Chapter 3.3
+
+
+
+#include <iostream>
+
+const double Conversion(double k, double l);
+
+int main()
+{
+    float km;
+    float liters;
+
+    std::cout << "Please enter distance (kilometers) ride: ";
+    std::cin >> km;
+    std::cout << "Please enter liters of gas consumed: ";
+    std::cin >> liters;
+
+    double total = Conversion(km, liters);
+
+    std::cout << "You use "<< total << " Liters of gasoline per kilometer.\n";
+
+    return 0;
+}
+
+const double Conversion(double k, double l)
+{
+    double total = l / k;
+
+    return total;
+
+}
