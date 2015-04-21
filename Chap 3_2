@@ -1,0 +1,86 @@
+/*chap 3.2: Write a short program that asks for your height in feet and inches and your weight in pounds.
+//(Use three variables to store the information.) Have the program report your BMI (Body Mass Index).
+//To calculate the BMI, first convert your height in feet and inches to your height in inches. Then, convert
+//your height in inches to your height in meters by multiplying by 0.0254. Then, converts your weight in pounds into
+//your mass in kilograms by dividing  by 2.2. Finally, compute your BMI by dividing your mass in kilograms by the square
+//of your height in meters. Use symbolic constants to represent the various conversion factors.
+
+
+#include <iostream>
+
+//function prototype
+const double Square(const double m);
+const int Height(double f, double i);
+const double Conversion(double m);
+const double Weight(double lb);
+const double BodyMass(double m, double kg);
+
+int main()
+{
+    double feet;
+    double inches;
+    double pounds;
+
+
+    std::cout << "Please enter your height (feet) and (inches): \n";
+    std::cin >> feet;
+    std::cout << "and\n";
+    std::cin >> inches;
+
+    int totalinches = Height(feet, inches);
+    double height = Conversion(totalinches);
+
+
+    std::cout << "\nPlease enter your weight in pounds: ";
+    std::cin >> pounds;
+
+    double kg = Weight(pounds);
+    double temp1 =Square(height);
+    double totalmass = BodyMass(kg, temp1);
+
+    std::cout << "Your BMI is " << totalmass << "\n";
+
+    return 0;
+}
+
+const double Square(double m)
+{
+    double meter;
+    meter = m * m;
+
+    return meter;
+}
+
+const int Height(double f, double i)
+{
+    int total_inc = f * 12 + i;
+    std::cout << "You entered " << f << " feet and " << i << " inches. "
+    << "A total of " << total_inc << " inches \n\n";
+
+    return total_inc;
+
+}
+
+const double Conversion(double h)
+{
+
+    double meters = h * 0.0254;
+    std::cout << "You are " << meters << " meters high.\n";
+
+    return meters;
+}
+
+const double Weight(double lb)
+{
+    double kg = lb / 2.2;
+    std::cout << "\nYou are " << kg << " Kilos\n\n";
+   
+    return kg;
+}
+
+const double BodyMass(double kg, double m)
+{
+    double bmi = kg / m;
+
+    return bmi;
+}
