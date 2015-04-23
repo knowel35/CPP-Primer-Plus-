@@ -1,0 +1,51 @@
+//chap3.5 Write a program that asks the user to enter the number of seconds as an integer
+//value (use type long, or, if available, long long) and that then displays the equivalent
+//time in days, hours, minutes, and seconds. Use symbolic constants to represent the number of hours
+//in the day, the number of minutes in an hour, and the number of seconds in a minute.
+//The output should look like this:
+
+//Enter the number of seconds: 31600000
+//31600000 seconds = 365 days, 17 hours, 46 minutes, 40 seconds
+
+#include <iostream>
+
+void Conversion(long s);
+
+int main(void)
+{
+    long seconds;
+
+    std::cout << "Enter the number of seconds: ";
+    std::cin >> seconds;
+
+    Conversion(seconds);
+
+    return 0;
+}
+
+void Conversion(long s)
+{
+
+    const int hours = 24;
+    const int minutes = 60;
+    const int seconds = 60;
+
+    long double min1 = (float) s / seconds;
+    long double hr1 = (float) min1 / minutes;
+    long double day1 = (float) hr1 / hours;
+
+
+    float day2 = day1 - (int) day1;
+    float hr2 = day2 * hours;
+    float hr3 = hr2 - (int) hr2;
+
+    float min2 = hr3 * minutes;
+    float min3 = min2 - (int) min2;
+    float sec = min3 * seconds;
+
+    std::cout << s << " seconds = "
+    << day1 - day2 << " days, "
+    << hr2 - hr3  <<" hours, "
+    << min2 - min3 <<" minutes, "
+    << sec << " seconds\n";
+}
