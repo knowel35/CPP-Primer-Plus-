@@ -1,0 +1,51 @@
+//chap 3.4 Write a program that asks the user to enter a latitude in degrees, minutes and seconds
+//and that then  displays the latitude in decimal point format. There are 60 seconds of
+//arc to a minute and 60 minutes of arc to a degree; represent these values with symbolic
+//constants. You use a separate variable for each input value. A sample
+//run should look like this:
+
+//Enter a latitude in degrees, minutes, and seconds:
+//First, enter the degrees: 37
+//Next, enter the minutes of arc: 51
+//Finally, enter the seconds of arc: 19
+//37 degrees, 51 minutes, 19 seconds = 37.8553 degrees
+
+#include <iostream>
+
+void Conversion(float d, float m, float s);
+
+int main(void)
+{
+    float degree;
+    float minutes;
+    float seconds;
+
+    std::cout << "Enter a latitude in degrees, minutes, and seconds: \n";
+    std::cout << "First, enter the degrees: ";
+    std::cin >> degree;
+    std::cout << "Next, enter the minutes of arc: ";
+    std::cin >> minutes;
+    std::cout << "Finally, enter the seconds of arc: ";
+    std::cin >> seconds;
+
+    Conversion(degree, minutes, seconds);
+
+    return 0;
+}
+
+void Conversion(float d, float m, float s)
+{
+    const int minute = 60;
+    const int degree = 60;
+
+    float total = float ((s / minute + m / degree) + d);
+
+    std::cout.precision(2);
+    std::cout.setf(std::ios_base::showpoint);
+    std::cout.setf(std::ios_base::fixed, std::ios_base::floatfield);
+
+    std::cout << d << " degrees, "
+    << m << " minutes, "
+    << s << " seconds = "
+    << total << " degrees\n";
+}
