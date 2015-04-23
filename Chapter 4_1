@@ -1,0 +1,42 @@
+//chap 4.1: Write a C++ program that requests and displays information as shown in the following
+//example of output:
+
+//What is your first name? Betty Sue
+//What is your last name? Yewe
+//What letter grade do you deserve (A-C)? B
+//What is your age? 22
+//Name: Yewe, Betty Sue
+//Grade: C
+//Age: 22
+
+#include <iostream>
+
+const int Arsize = 20;
+
+int main()
+{
+    char fname[Arsize];
+    char lname[Arsize];
+    int age;
+    char temp;
+
+    std::cout << "What is your First name: ";
+    std::cin.get(fname, Arsize).get();
+
+    std::cout << "What is your Last Name: ";
+    std::cin.get(lname, Arsize).get();
+
+    std::cout << "What letter grade do you deserve (A-C? ";
+    std::cin.get(temp);
+    ++temp;
+
+    std::cout << "What is your age? ";
+    std::cin >> age;
+
+    std::cout << "Name: " << lname << ", " << fname << "\n";
+    std::cout << "Grade: " << temp << "\n";
+    std::cout << "Age: " << age << "\n";
+
+    return 0;
+}
+
