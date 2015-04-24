@@ -1,0 +1,50 @@
+//chap 4.6: The CandyBar structure contains three members, as described in Programming
+//Exercise 5. Write a program that creates an array of three CandyBar structures, initializes
+//them to values of your choice, and then displays the contents of each structure.
+
+#include <iostream>
+
+struct CandyBar
+{
+    char brandname[20];
+    float weight;
+    int numCalories;
+};
+
+int main()
+{
+    CandyBar snack =
+    {
+        "Mocha Munch",
+        2.0,
+        350
+    };
+    CandyBar snack2 =
+    {
+        "Choco Munch",
+        3.0,
+        400
+    };
+    CandyBar snack3 =
+    {
+        "Blue Berry Munch",
+        4.00,
+        500
+    };
+
+    using std::cout;
+
+    cout << "Brand Name: " << snack.brandname << "\n";
+    cout << "Weight: " << snack.weight << "\n";
+    cout << "Calories: " <<snack.numCalories << "\n";
+
+    cout << "Brand Name: " << snack2.brandname << "\n";
+    cout << "Weight: " << snack2.weight << "\n";
+    cout << "Calories: " <<snack2.numCalories << "\n";
+
+    cout << "Brand Name: " << snack3.brandname << "\n";
+    cout << "Weight: " << snack3.weight << "\n";
+    cout << "Calories: " <<snack3.numCalories << "\n";
+
+    return 0;
+}
