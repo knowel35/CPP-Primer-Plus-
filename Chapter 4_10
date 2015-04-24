@@ -1,0 +1,26 @@
+//chap4.10:Write a program that requests the user to enter three times for the 40-yd dash
+//(or 40-meter, if you prefer) and then displays the times and the average. Use an array object
+//to hold the data. (Use a built-in-array if array is not available.)
+
+#include <iostream>
+
+int main(void)
+{
+    int num[3];
+    int total = 0;
+
+    for (int i = 1; i <= 3; i++)
+    {
+        std::cout << "Please Enter three numbers: ";
+        std::cin >> num[i];
+        std::cout << "Number: " << i << "\n";
+
+        total += num[i];
+    }
+
+    int ave = total / 3;
+    std::cout << "\nAverage is " << ave << "\n";
+
+
+    return 0;
+}
