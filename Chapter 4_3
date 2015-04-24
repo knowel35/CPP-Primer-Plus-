@@ -1,0 +1,29 @@
+//chap4.3: Write a program that asks the user to enter his or her first name and the last
+//name, and that then constructs, stores, and displays a third string, consisting of the
+//user's last name followed by a comma, a space, and first name. User char arrays and
+//functions from the cstring hearder file. A simple run could look like this:
+
+//Enter your first name: Flip
+//Enter your last name: Fleming
+//Here's the information in a single string: Fleming, Flip
+
+#include <iostream>
+#include <cstring>
+
+const int Arsize = 20;
+
+int main()
+{
+    char fname[Arsize];
+    char lname[Arsize];
+
+    std::cout << "Enter your first name: ";
+    std::cin.getline(fname, Arsize);
+    std::cout << "Enter your last name: ";
+    std::cin.getline(lname, Arsize);
+
+    std::cout << "Here's the information in a single string: " << lname << ", " << fname << "\n";
+
+
+    return 0;
+}
