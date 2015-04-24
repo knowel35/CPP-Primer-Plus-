@@ -1,0 +1,43 @@
+//chap 4.8: Do Programming Exercise 7 but use new to allocate a structure instead of declaring
+//a structure variable. Also, have the program request the pizza diameter before it
+//request the pizza company name.
+
+#include <iostream>
+
+struct PizzaInfo
+{
+    char brandname[20];
+    float diameter;
+    float weight;
+    int numCalories;
+    char Companyname[20];
+};
+
+int main()
+{
+    PizzaInfo * pizza = new PizzaInfo; // allot structure space
+
+    using std::cout;
+    using std::cin;
+
+    cout << "Please enter Pizza Name: ";
+    cin.get(pizza->brandname,20).get(); //method 1
+    cout << "Please enter Weight: ";
+    cin >> (*pizza).weight; //method 2
+    cout << "Please enter Calories: ";
+    cin >> pizza->numCalories;
+    cout << "Please enter Diameter: ";
+    cin >> pizza->diameter;
+    cin.get(); //read new line
+    cout << "Please enter Company Name: ";
+    cin.get(pizza->Companyname,20).get();
+
+
+    cout << "Brand Name: " << pizza->brandname << "\n";
+    cout << "Weight: " << pizza->weight << "\n";
+    cout << "Calories: " << pizza->numCalories << "\n";
+    cout << "Diameter: " << pizza->diameter << "\n";
+    cout << "Company Name: " << pizza->Companyname << "\n";
+
+    return 0;
+}
