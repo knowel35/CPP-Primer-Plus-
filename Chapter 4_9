@@ -1,0 +1,29 @@
+//chap4.9: Do Programming Exercise 6 but instead of declaring an array of three CandyBar
+//structure, use new to allocate the array dynamically.
+
+#include <iostream>
+
+struct CandyBar
+{
+    char brandname[20];
+    float weight;
+    int numCalories;
+};
+
+int main()
+{
+    CandyBar *snack = new CandyBar;
+
+    using std::cout;
+    using std::cin;
+
+    cout << "Please enter Candy Bar Name: ";
+    cin.get(snack->brandname,20).get(); //method 1
+    cout << "Please enter Weight: ";
+    cin >> (*snack).weight; //method 2
+    cout << "Please enter Calories: ";
+    cin >> snack->numCalories;
+
+
+    return 0;
+}
