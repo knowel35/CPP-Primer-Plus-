@@ -1,0 +1,73 @@
+//chap 5.4: Daphne invests $100 at 10% simple interest. That is, every year, the
+//investments the investment earns 10% of the original investment, or $10 each and
+//every year:
+
+//interest = 0.10 x original balance
+
+//At the same time, Cleo invests $100 at 5% compound interest.
+//That is, interest is 5% of the current balance, including previous additions of interest:
+
+//interest = 0.05 x current balance
+
+//Cleo earns 5% of $100 the first year, giving her $105. The next year she
+//earns 5% of $105, or $5.25, and so on. Write a program that finds how many years
+//it takes for the value of Cleo's investment to exceed the value of Daphne's investment
+//and then displays the value of both investments at that time.
+
+#include <iostream>
+
+const double SimpleInterest(const double invest, const int time);
+const double CompoundInterest(const double invest, const int time);
+
+
+int main()
+{
+    double originalinvestment =  100.00; //using type double for accurate value
+    double simple;
+    double compound;
+    int years = 0;
+
+    std::cout << "Year/s\tSimple\tCompound " << std::endl;
+
+    do
+    {
+        years++;
+
+        simple = SimpleInterest(originalinvestment, years);
+        compound = CompoundInterest(originalinvestment, years);
+
+        std::cout << years << "\t" << simple << "\t"<< compound << "\n";
+    }
+    while (simple > compound);
+
+    std::cout << "\nIt takes " << years;
+    std::cout << " years for the compound interest investment\n";
+    std::cout << "to exceed the value of the simple interest investment.\n";
+    std::cout << "With the corresponding amount per year"
+        << " in the table for comparison." << std::endl;
+
+    return 0;
+}
+
+const double SimpleInterest(const double invest, const int time)
+{
+    double interest = (0.10 * invest) * time;
+    double balance = invest + interest;
+
+    return balance;
+}
+
+const double CompoundInterest(const double invest, const int time)
+{
+
+    double balance = invest;
+
+    for(int i = 1 ; i <= time; i++)
+    {
+
+        double interest = balance * 0.05;
+        balance += interest;
+
+    }
+    return balance;
+}
