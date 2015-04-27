@@ -1,0 +1,52 @@
+//chap 5.6: You sell the book C++ for Fools. Write a program that has you enter a year's worth of
+//monthly sales (in terms of number of books, not of money). The program should use a
+//loop to prompt you by month, using an array of char * (or an array of string objects, if
+//you prefer) initialized to the month strings and storing the input data in an array of int.
+//Then, the program should find the sum of the array contents and report the total sales
+//for the year.
+
+#include <iostream>
+
+int main()
+{
+    int counter = 0;
+    int monthinyear = 12;
+    int totalsales = 0;
+
+    const std::string month_name[] = //arrays of months
+    {
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    };
+
+    int sold[monthinyear];// array for sold books
+
+    do
+	{
+        std::cout << "For the month of, " << month_name[counter] << "\n";
+        std::cout << "Enter BOOKs Sold: ";
+        std::cin >> sold[counter];
+        std::cout << std::endl;
+        counter++;
+	}
+	while(counter < monthinyear);
+
+
+    for (int i = 0; i < monthinyear; i++)
+    {
+        totalsales += sold[i];
+    }
+        std::cout << "\nTotal Sales of books for the year: " << totalsales << std::endl;
+
+    return 0;
+}
