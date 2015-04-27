@@ -1,0 +1,27 @@
+//chap 5.3: Write a program that asks the user to type in numbers. After each entry,
+//the program should report the cumulative sum of the entries to date. The program
+//should terminate when the user enters 0.
+
+#include <iostream>
+
+int main()
+{
+        int sum = 0;
+        int numToAdd;
+        int numbers;
+
+        std::cout << "How many numbers you want to add: ";
+        std::cin >> numToAdd;
+
+        for (int i = 1; i <= numToAdd; i++)
+        {
+            std::cout << "Values " << i << ": ";
+            std::cin >> numbers;
+            if (numbers == 0)
+                break;
+            sum += numbers;
+            std::cout << "Cumulative sum of the entries to date = " << sum << "\n";
+        }
+
+    return 0;
+}
