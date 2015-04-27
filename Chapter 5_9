@@ -1,0 +1,26 @@
+//chap5.9: Write a program that matches the description of the program in Programming
+//Execrise 8, but use a string class object instead of an array. Include the string
+//header file and use a relational operator to make the comparison test.
+
+#include <iostream>
+
+
+int main()
+{
+
+    std::string word;
+    int counter = 0;
+
+    std::cout << "Enter words (to stop, type the word done): \n";
+
+    do
+    {
+        counter++;
+        std::cin >> word;
+    }
+    while (word != "done");
+
+    std::cout << "You entered a total of " << counter - 1 << " words.\n";
+
+    return 0;
+}
