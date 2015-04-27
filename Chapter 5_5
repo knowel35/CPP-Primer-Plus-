@@ -1,0 +1,56 @@
+//chap5.5: Do Programming Exercise 4, but use a two-dimensional array to store
+//input for 3 years of monthly sales. Report the total sales for each individual
+//year and for the combined years.
+
+#include <iostream>
+
+int main()
+{
+    const int monthinyear = 12;
+    int summation = 0;
+    const int years = 4;
+
+    int sales[years][monthinyear];
+    const std::string month_name[monthinyear] = //arrays of months
+    {
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    };
+
+    int sold[years] = {0,0,0};// array for sold books
+
+    for (int i = 1; i < years; i++)
+    {
+        for (int j = 0; j < monthinyear; j++)
+        {
+            std::cout << "For the month of, " << month_name[j] << "\n";
+            std::cout << "Year " << i ;
+            std::cout << ", BOOKs Sold: ";
+            std::cin >> sales[i][j];
+            std::cout << std::endl;
+            sold[i] += sales[i][j];
+        }
+        std::cout << "Total for Year " << i << " = " << sold[i] << "\n\n";
+    }
+
+    for (int i = 1; i < years; i++)
+    {
+        std::cout << "Total sales for year " << i << " is " << sold[i]
+        << "." << std::endl;
+        summation += sold[i];
+    }
+    std::cout << "\nTotal Number of Books sold for combined years: " << summation << std::endl;
+
+    return(0);
+}
+
